@@ -141,7 +141,7 @@ class TableLayoutElement extends LayoutElement {
               context.parser.parseTree(context, child) as TextSpan;
 
           // print("----->${inlineSpan.toString()}");
-          print("----->${inlineSpan.children}");
+         // print("----->${inlineSpan.children}");
           List<InlineSpan> inlineSpans = [];
           inlineSpan.children?.forEach((element) {
             if (element is TextSpan) {
