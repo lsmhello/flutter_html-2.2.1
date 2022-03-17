@@ -180,7 +180,7 @@ Style declarationsToStyle(Map<String, List<css.Expression>> declarations) {
           style.lineHeight = ExpressionMapping.expressionToLineHeight(value.first);
           break;
         case 'font-family':
-          // style.fontFamily = ExpressionMapping.expressionToFontFamily(value.first) ?? style.fontFamily;
+          style.fontFamily = ExpressionMapping.expressionToFontFamily(value.first) ?? style.fontFamily;
           break;
         case 'font-feature-settings':
           style.fontFeatureSettings = ExpressionMapping.expressionToFontFeatureSettings(value);
@@ -700,6 +700,7 @@ class ExpressionMapping {
   }
 
   static String? expressionToFontFamily(css.Expression value) {
+    print("00000000${value.toString()}");
     if (value is css.LiteralTerm) return value.text;
     return null;
   }
