@@ -34,15 +34,15 @@ A Flutter widget for rendering HTML and CSS as Flutter widgets.
 - [API Reference](#api-reference)
 
   - [Constructors](#constructors)
-  
-    - [Selectable Text](#selectable-text) 
+
+    - [Selectable Text](#selectable-text)
 
   - [Parameters Table](#parameters)
-  
+
   - [Getters](#getters)
 
   - [Data](#data)
-    
+
   - [Document](#document)
 
   - [onLinkTap](#onlinktap)
@@ -50,7 +50,7 @@ A Flutter widget for rendering HTML and CSS as Flutter widgets.
   - [customRender](#customrender)
 
   - [onImageError](#onimageerror)
-  
+
   - [onMathError](#onmatherror)
 
   - [onImageTap](#onimagetap)
@@ -62,31 +62,31 @@ A Flutter widget for rendering HTML and CSS as Flutter widgets.
   - [navigationDelegateForIframe](#navigationdelegateforiframe)
 
   - [customImageRender](#customimagerender)
-  
+
     - [typedef ImageSourceMatcher (with examples)](#typedef-imagesourcematcher)
-    
+
     - [typedef ImageRender (with examples)](#typedef-imagerender)
-    
+
     - [Extended examples](#example-usages---customimagerender)
-    
+
 - [Rendering Reference](#rendering-reference)
 
   - [Image](#image)
-  
+
   - [Iframe](#iframe)
-  
+
   - [Audio](#audio)
-  
+
   - [Video](#video)
-  
+
   - [SVG](#svg)
-  
+
   - [MathML](#mathml)
-  
+
   - [Tex](#tex)
-  
+
   - [Table](#table)
-  
+
 - [Notes](#notes)
 
 - [Migration Guide](#migration-guides)
@@ -111,9 +111,9 @@ Add the following to your `pubspec.yaml` file:
 | `s` | `samp` | `section`   | `small`   | `span`| `strike`    | `strong`| `sub`   | `sup` | `summary` | `svg`|
 | `table` | `tbody` | `td` | `template` | `tfoot`   | `th`  | `thead`     |`time`   | `tr`    | `tt`  | `u`  |
 | `ul` | `var` | `video` |  `math`:  |  `mrow`  |  `msup`    | `msub`  |  `mover`   | `munder`  | `msubsup`  | `moverunder` |
-| `mfrac` | `mlongdiv` | `msqrt` |  `mroot`  |  `mi`  |  `mn`    | `mo`  |  |   |   |    | 
+| `mfrac` | `mlongdiv` | `msqrt` |  `mroot`  |  `mi`  |  `mn`    | `mo`  |  |   |   |    |
 
- 
+
 ## Currently Supported CSS Attributes:
 |                  |        |            |          |              |                        |            |
 |------------------|--------|------------|----------|--------------|------------------------|------------|
@@ -134,7 +134,7 @@ Don't see a tag or attribute you need? File a feature request or contribute to t
 ## Why this package?
 
 This package is designed with simplicity in mind. Originally created to allow basic rendering of HTML content into the Flutter widget tree,
-this project has expanded to include support for basic styling as well! 
+this project has expanded to include support for basic styling as well!
 If you need something more robust and customizable, the package also provides a number of optional custom APIs for extremely granular control over widget rendering!
 
 ## API Reference:
@@ -147,9 +147,9 @@ Below, you will find brief descriptions of the parameters the`Html` widget accep
 
 ### Constructors:
 
-The package currently has two different constructors - `Html()` and `Html.fromDom()`. 
+The package currently has two different constructors - `Html()` and `Html.fromDom()`.
 
-The `Html()` constructor is for those who would like to directly pass HTML from the source to the package to be rendered. 
+The `Html()` constructor is for those who would like to directly pass HTML from the source to the package to be rendered.
 
 If you would like to modify or sanitize the HTML before rendering it, then `Html.fromDom()` is for you - you can convert the HTML string to a `Document` and use its methods to modify the HTML as you wish. Then, you can directly pass the modified `Document` to the package. This eliminates the need to parse the modified `Document` back to a string, pass to `Html()`, and convert back to a `Document`, thus cutting down on load times.
 
@@ -169,7 +169,7 @@ Please note: Due to Flutter [#38474](https://github.com/flutter/flutter/issues/3
 
 Once the above issue is resolved, the aforementioned compromises will go away. Currently the `SelectableText.rich()` constructor does not support `WidgetSpan`s, resulting in the feature losses above.
 
-### Parameters: 
+### Parameters:
 
 |  Parameters  |   Description   |
 |--------------|-----------------|
@@ -198,7 +198,7 @@ Once the above issue is resolved, the aforementioned compromises will go away. C
 The HTML data passed to the `Html` widget as a `String`. This is required and cannot be null when using `Html`.
 Any HTML tags in the `String` that are not supported by the package will not be rendered.
 
-#### Example Usage - Data: 
+#### Example Usage - Data:
 
 ```dart
 Widget html = Html(
@@ -222,9 +222,9 @@ The DOM document passed to the `Html` widget as a `Document`. This is required a
 Any HTML tags in the document that are not supported by the package will not be rendered.
 Using the `Html.fromDom()` constructor can be useful when you would like to sanitize the HTML string yourself before passing it to the package.
 
-#### Example Usage - Document: 
+#### Example Usage - Document:
 
-```dart 
+```dart
 import 'package:html/parser.dart' as htmlparser;
 import 'package:html/dom.dart' as dom;
 ...
@@ -685,9 +685,9 @@ Widget html = Html(
 );
 ```
 
-Above, there are three custom `networkSourceMatcher`s, which will be applied - in order - before the default implementations. 
+Above, there are three custom `networkSourceMatcher`s, which will be applied - in order - before the default implementations.
 
-When an image with URL `flutter.dev` is detected, rather than displaying the image, the render will display the flutter logo. If the image is any other image, it keeps the default widget, but just sets the headers and the alt text in case that image happens to be broken. The final render handles relative paths by rewriting them, specifically prefixing them with a base url. Note that the customizations of the previous custom renders do not apply. For example, the headers that the second render would apply are not applied in this third render.  
+When an image with URL `flutter.dev` is detected, rather than displaying the image, the render will display the flutter logo. If the image is any other image, it keeps the default widget, but just sets the headers and the alt text in case that image happens to be broken. The final render handles relative paths by rewriting them, specifically prefixing them with a base url. Note that the customizations of the previous custom renders do not apply. For example, the headers that the second render would apply are not applied in this third render.
 
 2. Creating your own renders:
 ```dart
@@ -712,7 +712,7 @@ ImageRender classAndIdRender({String classToMatch, String idToMatch}) => (contex
           }
           return child;
         },
-    ); 
+    );
   }
 };
 
@@ -727,7 +727,7 @@ Widget html = Html(
 );
 ```
 
-The above example has a matcher that checks for either a class or an id, and then returns two different widgets based on whether a class was matched or an id was matched. 
+The above example has a matcher that checks for either a class or an id, and then returns two different widgets based on whether a class was matched or an id was matched.
 
 The sky is the limit when using the custom image renders. You can make it as granular as you want, or as all-encompassing as you want, and you have full control of everything. Plus you get the package's style parsing to use in your custom widgets, so your code looks neat and readable!
 
@@ -754,13 +754,13 @@ Note that there currently is no support for SVGs either in base64 format or asse
 
 ### Iframe
 
-This package renders iframes using the [`webview_flutter`](https://pub.dev/packages/webview_flutter) plugin. 
+This package renders iframes using the [`webview_flutter`](https://pub.dev/packages/webview_flutter) plugin.
 
-When rendering iframes, the package considers the width, height, and sandbox attributes. 
+When rendering iframes, the package considers the width, height, and sandbox attributes.
 
 Sandbox controls the JavaScript mode of the webview - a value of `null` or `allow-scripts` will set `javascriptMode: JavascriptMode.unrestricted`, otherwise it will set `javascriptMode: JavascriptMode.disabled`.
 
-You can set the `navigationDelegate` of the webview with the `navigationDelegateForIframe` property - see [here](#navigationdelegateforiframe) for more details. 
+You can set the `navigationDelegate` of the webview with the `navigationDelegateForIframe` property - see [here](#navigationdelegateforiframe) for more details.
 
 ### Audio
 
@@ -770,7 +770,7 @@ The package considers the attributes `controls`, `loop`, `src`, `autoplay`, `wid
 
 ### Video
 
-This package renders video elements using the [`chewie`](https://pub.dev/packages/chewie) plugin. 
+This package renders video elements using the [`chewie`](https://pub.dev/packages/chewie) plugin.
 
 The package considers the attributes `controls`, `loop`, `src`, `autoplay`, `poster`, `width`, `height`, and `muted` when rendering the video widget.
 
@@ -797,7 +797,7 @@ If you'd like to see more MathML features, feel free to create a PR or file a fe
 If you have a Tex string you'd like to render inside your HTML you can do that using the same [`flutter_math`](https://pub.dev/packages/flutter_math) plugin.
 
 Use a custom tag inside your HTML (an example could be `<tex>`), and place your **raw** Tex string inside.
- 
+
 Then, use the `customRender` parameter to add the widget to render Tex. It could look like this:
 
 ```dart
@@ -816,6 +816,8 @@ Widget htmlWidget = Html(
 );
 ```
 
+源码出处：https://github.com/Sub6Resources/flutter_html
+
 ### Table
 
 This package renders table elements using the [`flutter_layout_grid`](https://pub.dev/packages/flutter_layout_grid) plugin.
@@ -827,7 +829,7 @@ When rendering table elements, the package tries to calculate the best fit for e
 1. If you'd like to use this widget inside of a `Row()`, make sure to set `shrinkWrap: true` and place your widget inside expanded:
 
 ```dart
-Widget row = Row(
+Widget row = Row(˚
    children: [
 	Expanded(
 	    child: Html(

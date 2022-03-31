@@ -35,44 +35,44 @@ void main() {
 void testNewParser(BuildContext context) {
   HtmlParser.parseHTML("<b>Hello, World!</b>");
 
-  StyledElement tree = HtmlParser.lexDomTree(
-    HtmlParser.parseHTML(
-        "Hello! <b>Hello, World!</b><i>Hello, New World!</i>"),
-    [],
-    [],
-    null,
-    context,
-  );
-  print(tree.toString());
+  // StyledElement tree = HtmlParser.lexDomTree(
+  //   HtmlParser.parseHTML(
+  //       "Hello! <b>Hello, World!</b><i>Hello, New World!</i>"),
+  //   [],
+  //   [],
+  //   null,
+  //   context,
+  // );
+  // print(tree.toString());
 
-  tree = HtmlParser.lexDomTree(
-    HtmlParser.parseHTML(
-        "Hello, World! <a href='https://example.com'>This is a link</a>"),
-    [],
-    [],
-    null,
-    context,
-  );
-  print(tree.toString());
+  // tree = HtmlParser.lexDomTree(
+  //   HtmlParser.parseHTML(
+  //       "Hello, World! <a href='https://example.com'>This is a link</a>"),
+  //   [],
+  //   [],
+  //   null,
+  //   context,
+  // );
+  // print(tree.toString());
 
-  tree = HtmlParser.lexDomTree(
-    HtmlParser.parseHTML("<img src='https://image.example.com' />"),
-    [],
-    [],
-    null,
-    context,
-  );
-  print(tree.toString());
-
-  tree = HtmlParser.lexDomTree(
-    HtmlParser.parseHTML(
-        "<div><div><div><div><a href='link'>Link</a><div>Hello, World! <b>Bold and <i>Italic</i></b></div></div></div></div></div>"),
-    [],
-    [],
-    null,
-    context,
-  );
-  print(tree.toString());
+  // tree = HtmlParser.lexDomTree(
+  //   HtmlParser.parseHTML("<img src='https://image.example.com' />"),
+  //   [],
+  //   [],
+  //   null,
+  //   context,
+  // );
+  // print(tree.toString());
+  //
+  // tree = HtmlParser.lexDomTree(
+  //   HtmlParser.parseHTML(
+  //       "<div><div><div><div><a href='link'>Link</a><div>Hello, World! <b>Bold and <i>Italic</i></b></div></div></div></div></div>"),
+  //   [],
+  //   [],
+  //   null,
+  //   context,
+  // );
+  // print(tree.toString());
 
   ReplacedElement videoContentElement = parseReplacedElement(
     HtmlParser.parseHTML("""
